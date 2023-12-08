@@ -22,5 +22,4 @@ export class IntroComponent implements OnInit {
     typed.reset(true)
     this.cvUrl =  this.profileService.resumeurl
   }
-
 }

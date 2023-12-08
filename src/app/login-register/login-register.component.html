@@ -2,7 +2,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#" style="color: black;">Welcome To Debasish's PROFILE</a>
+                <a class="navbar-brand" routerLink="../profile" style="color: black;">Welcome To Debasish's PROFILE</a>
             </div>
         </nav>
     </div>
@@ -14,27 +14,40 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12">
+            <mat-card>
                 <div class="login_form">
-                    <form>
+                <h2>Hello there! 👋</h2>
+                    <form [formGroup]="form" (ngSubmit)="logIn()">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input [type]="password" class="form-control" id="floatingPassword" formControlName="password" placeholder="Password">
                             <label for="floatingPassword">Password</label>
+                            <button class="hideShow" (click)="onClick()">
+                            <i class="fa fa-eye" aria-hidden="true" *ngIf="!show" title="Show password"></i>
+                            <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show" title="Hide password"></i>
+                            </button>
                         </div>
-                        <button type="button" class="btn mb-3"
+                        <div>
+                            <div style="display:flex;justify-content:space-between">
+                                <span></span>
+                                <a (click)="openFrgt()" style="cursor: pointer;color: rgb(88, 88, 223);">Forgot your password?</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn mb-3"
                             style="background-color: #e3f2fd;font-size: medium;--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                             Sign In  
                         </button>
-                        <p>Have not Account please Click on <a (click)="openModel()" style="cursor: pointer;color: rgb(88, 88, 223);">SignUp</a></p>
+                        <p>Don't have an account yet? <a (click)="openModel()" style="cursor: pointer;color: rgb(88, 88, 223);">Signup now</a></p>
                     </form>
                 </div>
+            </mat-card>    
             </div>
         </div>
     </div>
-
+<br>
     <footer class="footer" style="background-color: #e3f2fd;">
         <div class="container text-center">
             <a class="btn btn-default btn-round btn-lg btn-icon"
@@ -53,6 +66,33 @@
         </div>
       </footer>
 </body>
+
+<div class="modal" id="frgtModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Please Give Your Mail Id</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closefrgt()"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form  [formGroup]="form" (ngSubmit)="frgtpwd()">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <button type="submit" class="btn mb-3" (click)="closefrgt()"
+                        style="background-color: #e3f2fd;font-size: medium;--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        SendMe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -65,20 +105,20 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form>
+                <form [formGroup]="form" (ngSubmit)="userRegister()">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingUsername" placeholder="UserName">
+                        <input type="text" class="form-control" id="floatingUsername" formControlName="userName" placeholder="UserName">
                         <label for="floatingPassword">UserName</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com">
                         <label for="floatingInput">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" formControlName="password" placeholder="Password">
                         <label for="floatingPassword">Password</label>
                     </div>
-                    <button type="button" class="btn mb-3"
+                    <button type="submit" class="btn mb-3" (click)="closeModel()"
                         style="background-color: #e3f2fd;font-size: medium;--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         Submit 
                     </button>

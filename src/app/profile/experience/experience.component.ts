@@ -8,12 +8,22 @@ import { ProfileService } from '../profile.service';
 })
 export class ExperienceComponent implements OnInit {
 
-workexp: any
-
+// workexp: any
+rows:any[] | undefined;
+data:any[] | undefined;
   constructor(private profileService:ProfileService) { }
 
     ngOnInit() {
 
-      this.workexp =  this.profileService.exprience()
+      // this.workexp =  this.profileService.exprience()
+      this.getExperiences()
+    }
+    getExperiences(){
+      this.profileService.getExperience().subscribe((res)=>{
+        console.log("getting expriences data from backend",res);
+        var get=res.data
+        this.rows=get;
+        this.data=this.rows
+      })
     }
 }

@@ -181,13 +181,19 @@ export class ProfileService {
     },
 
   ]
-  about2 = `Software Developer with 2.5+ years of experience .
-  Worked with Software Development Life Cycle(SDLC) and  agile methodologies .
-  Expertise in Angular 2+ All versions, React, Javascript,  Node JS and UI with Responsive Designs .
-  Have good understanding of Python, Jquery, Bootstrap, MongoDB, Firebase, and MYSQL`
+  about2 = `Software Developer with 2 years of experience .
+  Collaborate with cross-functional teams, including designers, testers, and product managers, to deliver
+  high-quality software solutions .
+  Expertise in Javascript,  Node JS, Angular with Responsive Designs .
+  Coding business logic modules using Node JS .
+  Creating Databases functionality as per client Requirements .
+  Identify and troubleshoot software defects and implement necessary fixes .
+  Documenting Node.js processes, including database schemas, as well as preparing reports .
+  Developing high-performance applications by writing testable, reusable, and efficient code.
+  Conduct and participate in code reviews to maintain code quality and consistency.`
 
-  about = "Lover of innovation and everything related to generate new knowledge.Face problems with a smile and solve them as soon as possible. Very calculated about the time I spend and work I do."
-  resumeurl = "https://docs.google.com/document/d/1WODFuhIzQw2AXPsjt6f3rs-EDWhdhT8s89fOTrGRh70/edit?usp=sharing"
+  about = "Lover of innovation and everything related to generate new knowledge. Very calculated about the time I spend and work I do."
+  resumeurl = "https://drive.google.com/file/d/12MiWa-qGgb6CiOC858G6jbd2xuqoE_GE/view?usp=drive_link"
 
   skillsData: any = [
     {
@@ -358,5 +364,9 @@ Completed my Secondary school with 84%.`
   extraCircular(): Observable<any> {
     // return this.http.get(this.baseUrl + 'exprience');
     return this.extraCircularInfo;
+  }
+
+  getExperience(){
+    return this.http.get<any>(`http://localhost:3000/portfolio/getexperience`)
   }
 }

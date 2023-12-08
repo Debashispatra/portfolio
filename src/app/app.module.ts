@@ -13,6 +13,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import {MatCardModule} from '@angular/material/card';
+
 const routes: Routes = [
   {
     path: 'profile',
@@ -21,6 +25,10 @@ const routes: Routes = [
   {
     path:'',
     component:LoginRegisterComponent
+  },
+  {
+    path:'admindashboard',
+    component:AdmindashboardComponent
   }
 ];
 
@@ -28,7 +36,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -42,7 +51,9 @@ const routes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatTabsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
