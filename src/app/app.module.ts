@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import {MatCardModule} from '@angular/material/card';
+import { ContactComponent } from './profile/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path:'admindashboard',
     component:AdmindashboardComponent
+  },
+  {
+    path:"contact",
+    component:ContactComponent
   }
 ];
 

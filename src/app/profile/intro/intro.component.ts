@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../profile.service';
 import Typed from 'typed.js';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
@@ -8,7 +9,7 @@ import Typed from 'typed.js';
 })
 export class IntroComponent implements OnInit {
   cvUrl: any
-  constructor(private profileService:ProfileService) { }
+  constructor(private profileService:ProfileService,private router:Router) { }
 
   ngOnInit() {
     var options = {
@@ -21,5 +22,9 @@ export class IntroComponent implements OnInit {
     var typed = new Typed('.typed', options);
     typed.reset(true)
     this.cvUrl =  this.profileService.resumeurl
+  }
+  contact(){
+    console.log("inside contact");
+    this.router.navigate(['/contact'])
   }
 }
